@@ -1,0 +1,44 @@
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        
+        if(isBadVersion(1)==true)
+            return 1;
+        
+        int a = find(1,n);
+        return a+1;
+        
+    }
+    
+    int find(int a,int b)
+    {
+        int x ;
+        if(a%2!=0&&b%2!=0)
+            x = a/2 + b/2 + 1;
+        else
+            x = a/2 + b/2;
+        int d;
+        bool q = isBadVersion(x);
+        bool w = isBadVersion(b);
+        
+        if(q!=w)
+        {
+            if(x+1==b)
+                return x;
+            
+            d = find(x,b);
+            return d;
+        }
+        else
+        {
+            if(a+1==x)
+                return a;
+            
+            d = find(a,x);
+            return d;
+        }
+    }
+};
