@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        
+        int c=0;
+        unordered_set<char> d;
+        for(auto e:J)
+            d.emplace(e);
+        
+        for(auto b:S)
+        {
+            if(d.find(b)!=d.end())
+                c+=1;
+        }
+        
+        return c;
+    }
+};
