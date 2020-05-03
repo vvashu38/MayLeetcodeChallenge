@@ -1,0 +1,24 @@
+static auto _______ = [](){
+    // turn off sync
+    std::ios::sync_with_stdio(false);
+    // untie in/out streams
+    std::cin.tie(nullptr);
+    return 0;
+}();
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        std::vector<int> b(128);
+        
+        for(auto a: ransomNote)
+        {
+            ++b[a];
+        }
+        for(auto a:magazine)
+        {
+             --b[a];
+        }
+        
+        return std::none_of(begin(b),end(b),[](int x){ return x>0;});
+    }
+};
