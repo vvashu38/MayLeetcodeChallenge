@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int findComplement(int num) {
+      stack<int> a;
+        int c;
+        while(num!=0)
+        {
+            c = num%2;
+            a.push(c);
+            num = num/2;
+         }
+        num=0;
+        while(!a.empty())
+        {
+          if(a.top()==0)
+              num+=pow(2,a.size()-1);
+            
+        a.pop();
+        }
+
+        
+        return num;
+
+    }
+};
